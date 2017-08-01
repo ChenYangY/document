@@ -1,0 +1,25 @@
+{
+  "name": "document",
+  "version": "0.0.1",
+  "description": "download and view document",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChenYangY/document.git"
+  },
+  "keywords": [
+    "express"
+  ],
+  "author": "chenyy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ChenYangY/document/issues"
+  },
+  "homepage": "https://github.com/ChenYangY/document#readme",
+  "dependencies": {
+    "express": "^4.15.3"
+  }
+}
