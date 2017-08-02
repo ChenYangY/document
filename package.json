@@ -20,7 +20,14 @@
   },
   "homepage": "https://github.com/ChenYangY/document#readme",
   "dependencies": {
+    "connect": "^3.6.2",
+    "connect-mongo": "^1.3.2",
     "express": "^4.15.3",
-    "mongoose": "^4.11.5"
+    "express-formidable": "^1.0.0",
+    "express-session": "^1.15.4",
+    "express-winston": "^2.4.0",
+    "mongoose": "^4.11.5",
+    "session-mongoose": "^0.5.2",
+    "winston": "^2.3.1"
   }
 }

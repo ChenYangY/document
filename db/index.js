@@ -3,8 +3,10 @@ var config = require('../config');
 
 var uri = "mongodb://"+config.db.user+":"+config.db.pass+"@localhost:"+config.db.port+"/"+config.db.name;
 
-var conn = mongoose.connection(uri);
+console.log(uri);
+var conn = mongoose.connect(uri);
 
 module.exports = {
-    conn    :  conn
+    conn    :  conn,
+    uri     :  uri
 }
