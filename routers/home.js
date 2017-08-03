@@ -1,7 +1,11 @@
 var router = require("express").Router();
 
 router.get("/",function(req,res,next){
-    res.send("home");
+    res.render("index");
+})
+
+router.post("/",function(req,res){
+    
 })
 
 module.exports = router;

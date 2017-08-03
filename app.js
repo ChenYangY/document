@@ -32,6 +32,11 @@ app.use(session({
     })
 }));
 
+app.locals.resume = {
+  title : "nodejs",
+  description: "nodejs develop"
+}
+
 app.use(require("express-formidable")({
     uploadDir: path.join(__dirname, 'upload'),// 上传文件目录
     keepExtensions: true// 保留后缀
@@ -41,10 +46,6 @@ app.use(require("express-formidable")({
 // 正常请求的日志
 app.use(expressWinston.logger({
   transports: [
-    new (winston.transports.Console)({
-      json: true,
-      colorize: true
-    }),
     new winston.transports.File({
       filename: 'logs/success.log'
     })
@@ -60,7 +61,7 @@ app.use(function (err, req, res, next) {
 });
 
 if(module.parent){
-
+  module.exports = app;
 }else{
     app.listen(config.port,function(){
         console.log("server listen at"+config.port);
