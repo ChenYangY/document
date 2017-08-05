@@ -1,3 +1,3 @@
 #!/bin/bash
-supervisor -i ./logs,./.git --ignore-synlinks --harmony app.js
+supervisor -i ./logs,./.git,./upload --ignore-synlinks --harmony app.js
 
