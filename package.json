@@ -6,7 +6,7 @@
   "scripts": {
     "test": "mocha",
     "start": "pm2 start app.js --name='document' ",
-    "":"supervisor app.js -i ./logs -i .*  --ignore-synlinks --harmony"
+    "": "supervisor app.js -i ./logs -i .*  --ignore-synlinks --harmony"
   },
   "repository": {
     "type": "git",
@@ -32,5 +32,8 @@
     "mongoose": "^4.11.5",
     "session-mongoose": "^0.5.2",
     "winston": "^2.3.1"
+  },
+  "devDependencies": {
+    "should": "^11.2.1"
   }
 }

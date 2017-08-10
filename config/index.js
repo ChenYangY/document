@@ -10,5 +10,8 @@ module.exports = {
         key: 'nid',
         maxAge: 2592000000
     },
+    upload:{
+        path:"./upload/"
+    },
     port:8989
 }

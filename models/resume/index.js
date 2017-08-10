@@ -9,5 +9,14 @@ var Resume = new mongoose.Schema({
     addr:String,
     workage:String,
     skills:Array,
-    work_desc:String
-})
+    work_experice:String,
+    files:Array
+});
+
+// 注册模版
+var ResumeModel = mongoose.model("resume",Resume,"resumes");
+
+
+module.exports = {
+    ResumeModel :  ResumeModel
+}

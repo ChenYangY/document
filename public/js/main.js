@@ -37,21 +37,25 @@
             if(!province){
                 area_help.parent().addClass("has-error");
                 area_help.removeClass("sr-only")
+                ele_province.focus();
                 return false;
             }
             if(!city){
                 area_help.parent().addClass("has-error");
-                area_help.removeClass("sr-only")
+                area_help.removeClass("sr-only");
+                ele_city.focus();
                 return false;
             }
             if(!district){
                 area_help.parent().addClass("has-error");
-                area_help.removeClass("sr-only")
+                area_help.removeClass("sr-only");
+                ele_district.focus();
                 return false;
             }
             if(!street_info){
                 area_help.parent().addClass("has-error");
-                area_help.removeClass("sr-only")
+                area_help.removeClass("sr-only");
+                $("#street_info").focus();
                 return false;
             }else{
                 area_help.parent().removeClass("has-error");
@@ -63,14 +67,18 @@
             if(!number){
                 ele_number.parent().addClass("has-error");
                 $("#user_number_help").removeClass("sr-only");
+                ele_number.focus();
+                return false;
             }else{
                 ele_number.parent().removeClass("has-error");
                 $("#user_number_help").addClass("sr-only");
             }
-            var work_age = $("input[type='radio'][name='work_age']").val();
+            var work_age = $("input[type='radio'][name='work_age']:checked").val();
             if(!work_age){
                 $("#work_age_help").parent().addClass("has-error");
                 $("#work_age_help").removeClass("sr-only");
+                $("input[type='radio'][name='work_age']").eq(0).focus();
+                return false;
             }else{
                 $("#work_age_help").parent().removeClass("has-error");
                 $("#work_age_help").addClass("sr-only");
@@ -79,21 +87,45 @@
             if(skills <= 0){
                 $("#user_skills_help").parent().addClass("has-error");
                 $("#user_skills_help").removeClass("sr-only");
+                $("input[type=checkbox][name=early_education]").focus();
+                return false;
             }else{
                 $("#user_skills_help").parent().removeClass("has-error");
                 $("#user_skills_help").addClass("sr-only"); 
             }
-            var ele_exprience = $("work_exprience");
+            var ele_exprience = $("#work_experience");
             var work_exprience = ele_exprience.val();
             if(!work_exprience){
-                $("#work_exprience_help").parent().addClass("has-error");
-                $("#work_exprience_help").removeClass("sr-only");
+                $("#work_experience_help").parent().addClass("has-error");
+                $("#work_experience_help").removeClass("sr-only");
+                ele_exprience.focus();
+                return false;
             }else{
-                $("#work_exprience_help").parent().removeClass("has-error");
-                $("#work_exprience_help").addClass("sr-only");
+                $("#work_experience_help").parent().removeClass("has-error");
+                $("#work_experience_help").addClass("sr-only");
             }
-            var upload_file = $("#upload_file").val();
-            return false;
+            var ele_upload_file = $("#upload_file");
+            var upload_file = ele_upload_file.val();
+            if(!upload_file){
+                $("#upload_file_help").parent().addClass("has-error");
+                $("#upload_file_help").removeClass("sr-only");
+                ele_upload_file.focus();
+                return false;
+            }else{
+                $("#upload_file_help").removeClass("sr_only");
+            }
+            var file_size =  ele_upload_file[0].files[0].size;
+            var max_file_size = 10 * 1024 * 1024;
+            if(file_size > max_file_size){
+                $("#upload_file_help").parent().addClass("has-error");
+                $("#max_file_help").removeClass("sr-only");
+                ele_upload_file.focus();
+                return false;
+            }else{
+                $("#max_file_help").parent().removeClass("has-error");
+                $("#max_file_help").addClass("sr-only");
+            }
+            return true;
         })
         $("#user_province").change(function(){
             var ele_province = $(this);

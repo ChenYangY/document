@@ -9,6 +9,9 @@
         <title>育婴爱简历资料登记表</title>
         <script src='./js/jquery.min.js'></script>
         <script src='./js/bootstrap.min.js'></script>
+        <script src='./js/area.js'></script>
+        <script src='./js/main.js'></script>
+        <script src='./js/md5.min.js'></script>
         <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css" />
         <link rel="stylesheet" type="text/css" href="./css/style.css">
     </head>
@@ -31,41 +34,45 @@
                     <form method="post" enctype='multipart/form-data'>
                         <div class='form-group'>
                             <label>姓名</label>
-                            <input class='form-control' id='user_alias' type='text' name='user_alias'/>
+                            <input class='form-control' id='username' type='text' name='username'/>
+                            <span class="help-block sr-only" id='username_help'>至少包含三个有效字符！</span>
                         </div>
                         <div class='form-group'>
                             <label>手机号码</label>
-                            <input class='form-control' id='user_phone' type='text' />
+                            <input class='form-control' id='user_phone' type='text' name='phone'/>
+                            <span class="help-block sr-only" id='user_phone_help'>请填写有效的手机号码！</span>
                         </div>
                         <div class='form-group'>
                             <label>家庭地址</label>
+                            <span class="help-block sr-only" id='user_area_help'>请填写有效的地区信息！</span>
                             <div class='row'>
                                 <div class='col-md-4' style='margin:5px 0px;'>
-                                    <select class='form-control' id='user_province'>
+                                    <select class='form-control' id='user_province' name='province'>
                                         <option value=''>请选择省份</option>
                                     </select>
                                 </div>
                                 <div class='col-md-4' style='margin:5px 0px;'>
-                                    <select class='form-control' id='user_city'>
+                                    <select class='form-control' id='user_city' name='city'>
                                         <option value=''>请选择城市</option>
                                     </select>
                                 </div>
                                 <div class='col-md-4' style='margin:5px 0px;'>
-                                    <select class='form-control' id='user_district'>
+                                    <select class='form-control' id='user_district' name='district'>
                                         <option value=''>请选择区/县</option>
                                     </select>
                                 </div>
                             </div>
                             <label style='margin-top:10px;'>街道信息</label>
-                            <textarea class='form-control' id='street_info'></textarea>
-                            
+                            <textarea class='form-control' id='street_info' name='street_info'></textarea>
                         </div>
                         <div class='form-group'>
                             <label>上户数量</label>
-                            <input class='form-control' id='user_number' type='number' />
+                            <input class='form-control' id='user_number' type='number' name='user_number' />
+                            <span class="help-block sr-only">请填写信息！</span>
                         </div>
                         <div class='form-group'>
                             <label>工作年限 (单选)</label>
+                            <span class="help-block sr-only" id='work_age_help'>请选择选项！</span>
                             <div class='radio'>
                                 <label>
                                     <input name='work_age' type='radio' value='1'/>1年以下
@@ -89,71 +96,75 @@
                         </div>
                         <div class='form-group'>
                             <label>掌握的技能 (可多选)</label>
+                            <span class="help-block sr-only" id='user_skills_help'>请选择选项！</span>
                             <div class='checkbox'>
                                 <label>
-                                    <input type='checkbox' name='skills' value='1'> 早教
+                                    <input type='checkbox' name='early_education' value='1'> 早教
                                 </label>
                             </div>
                             <div class='checkbox'>
                                 <label>
-                                    <input type='checkbox' name='skills' value='1'> 催乳
+                                    <input type='checkbox' name='prolactin' value='1'> 催乳
                                 </label>
                             </div>
                             <div class='checkbox'>
                                 <label>
-                                    <input type='checkbox' name='skills' value='1'> 产后形体恢复
+                                    <input type='checkbox' name='body_recovery' value='1'> 产后形体恢复
                                 </label>
                             </div>
                             <div class='checkbox'>
                                 <label>
-                                    <input type='checkbox' name='skills' value='1'> 小儿推拿
+                                    <input type='checkbox' name='pediatric_massage' value='1'> 小儿推拿
                                 </label>
                             </div>
                             <div class='checkbox'>
                                 <label>
-                                    <input type='checkbox' name='skills' value='1'> 产后发汗
+                                    <input type='checkbox' name='postpartum_sweating' value='1'> 产后发汗
                                 </label>
                             </div>
                             <div class='checkbox'>
                                 <label>
-                                    <input type='checkbox' name='skills' value='1'> 双胞胎、早产儿、病儿
+                                    <input type='checkbox' name='baby_exception' value='1'> 双胞胎、早产儿、病儿
                                 </label>
                             </div>
                             <div class='checkbox'>
                                 <label>
-                                    <input type='checkbox' name='skills' value='1'> 卵巢保养
+                                    <input type='checkbox' name='ovary_care' value='1'> 卵巢保养
                                 </label>
                             </div>
                             <div class='checkbox'>
                                 <label>
-                                    <input type='checkbox' name='skills' value='1'> 子宫复旧
+                                    <input type='checkbox' name='uterus_old' value='1'> 子宫复旧
                                 </label>
                             </div>
                             <div class='checkbox'>
                                 <label>
-                                    <input type='checkbox' name='skills' value='1'> 产妇心理疏导
+                                    <input type='checkbox' name='psychological_counseling' value='1'> 产妇心理疏导
                                 </label>
                             </div>
                             <div class='checkbox'>
                                 <label>
-                                    <input type='checkbox' name='skills' value='1'> 宝宝基础护理
+                                    <input type='checkbox' name='baby_care' value='1'> 宝宝基础护理
                                 </label>
                             </div>
                             <div class='checkbox'>
                                 <label>
-                                    <input type='checkbox' name='skills' value='1'> 月子餐
+                                    <input type='checkbox' name='month_meal' value='1'> 月子餐
                                 </label>
                             </div>
                         </div>
                         <div class='form-group'>
+                            <span class="help-block sr-only" id='work_experience_help'>请填写内容！</span>
                             <label>工作经历描述</label>
-                            <textarea class='form-control' id='work_experience'></textarea>
+                            <textarea class='form-control' id='work_experience' name='experience'></textarea>
                         </div>
                         <div class='form-group'>
-                            <label>点击选择文件上传个人生活照、工作照、技能证书照、月子餐、锦旗照片等</label>
+                            <label>点击选择文件上传个人生活照、工作照、技能证书照、月子餐、锦旗照片等(最大10M)</label>
+                            <span class="help-block sr-only" id='upload_file_help'>请选择上传的文件！</span>
+                            <span class="help-block sr-only" id='max_file_help'>文件大小超过10M!</span>
                             <input class='form-control' type='file' id='upload_file' name='upload_file'> 
                         </div>
-                        <input class='btn btn-primary' type='submit' onsubmit='check_submit_info()' value='提交'>
+                        <input class='btn btn-primary' type='submit' id='btn_submit_info' value='提交'>
                     </form>
                     <br>
                     <br>
@@ -163,10 +174,11 @@
                 <p style='text-align:center'>xxxx 公司版权所有 ©️2011-2017</p>
             </div>
         </div>
-        <script type='text/javascript'>
-            function check_submit_info() {
-                return true;
-            }
+        <script>
+            $(document).ready(function(){
+                window.resume.page_home();
+            })
+            
         </script>
     </body>
 </html>
