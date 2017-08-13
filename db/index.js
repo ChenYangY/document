@@ -5,6 +5,9 @@ var uri = "mongodb://"+config.db.user+":"+config.db.pass+"@localhost:"+config.db
 
 var conn = mongoose.connect(uri);
 
+mongoose.Promise = global.Promise;
+
+
 module.exports = {
     conn    :  conn,
     uri     :  uri

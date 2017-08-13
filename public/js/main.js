@@ -180,8 +180,7 @@
     }
 
     function get_user_skills(){
-        var skills = ["early_education","prolactin","body_recovery","pediatric_massage","postpartum_sweating",
-                    "baby_exception","ovary_care","uterus_old","psychological_counseling","baby_care","month_meal"];
+        var skills = ["early_education","prolactin","body_recovery","pediatric_massage","postpartum_sweating","baby_exception","ovary_care","uterus_old","psychological_counseling","baby_care","month_meal"];
         var val = null, count = 0;
         for(var o in skills){
             val = $("input[type='checkbox'][name='"+skills[o]+"']").prop("checked");
@@ -190,5 +189,14 @@
             }
         }
         return count;
+    }
+
+    window.resume.page_login() = function(){
+        $("#btn_form_submit").click(function(){
+            var username = $("#username").val();
+            var password = $("password").val();
+            
+            return false;
+        })
     }
 })(window);

@@ -63,7 +63,7 @@ app.use(function (err, req, res, next) {
 if(module.parent){
   module.exports = app;
 }else{
-    app.listen(config.port,function(){
+    app.listen(config.port,"0.0.0.0",function(){
         console.log("server listen at"+config.port);
     });
 }
