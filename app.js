@@ -8,7 +8,10 @@ var db = require("./db");
 var config = require("./config");
 var routers = require("./routers");
 var app = express();
+var process = require("process");
 
+
+process.setMaxListeners(0);
 
 // 设置视图模版路径
 app.set("views",path.join(__dirname,"views"));

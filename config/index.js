@@ -13,5 +13,9 @@ module.exports = {
     upload:{
         path:"./upload/"
     },
+    admin:{
+        name:"admin",
+        pwd:"admin"
+    },
     port:8989
 }

@@ -191,12 +191,11 @@
         return count;
     }
 
-    window.resume.page_login() = function(){
-        $("#btn_form_submit").click(function(){
-            var username = $("#username").val();
-            var password = $("password").val();
-            
-            return false;
-        })
+    window.resume.page_login = function(){
+        $("#login_form").submit(function(){
+            var password = $("#inputPassword").val();
+            var md5_pwd = md5(password);
+            this.password.value = md5_pwd;
+        });
     }
 })(window);
